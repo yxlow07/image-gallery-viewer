@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" href="/tw.css">
+</head>
+<body>
+<header class="flex flex-wrap sm:justify-start sm:flex-nowrap w-full bg-white text-sm py-4 dark:bg-neutral-800">
+    <nav class="max-w-[85rem] w-full mx-auto px-4 sm:flex sm:items-center sm:justify-between" aria-label="Global">
+        <a class="flex-none text-xl font-semibold dark:text-white" href="/">NH Reader</a>
+        <div class="flex flex-row items-center gap-5 mt-5 sm:justify-end sm:mt-0 sm:ps-5">
+            <p class="font-medium text-white" id="title"></p>
+        </div>
+    </nav>
+</header>
+<div class="bg-gray-100 flex flex-col items-center justify-center min-h-screen m-2 p-2 mx-4">
+    <div class="img mb-6">
+        <img src="{imagePath}" alt="none" class="max-w-full h-auto rounded shadow-lg">
+    </div>
+    <div class="controls flex space-x-4">
+        <a href="/" id="back-button"
+           class="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded">Back</a>
+        <a href="#" id="prev-button" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Previous</a>
+        <a href="#" id="next-button"
+           class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">Next</a>
+        <button id="settings-button" class="bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-2 px-4 rounded">
+            Settings
+        </button>
+    </div>
+</div>
+<script src="/image.js"></script>
+</body>
+</html>

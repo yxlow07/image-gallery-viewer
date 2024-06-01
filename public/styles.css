@@ -1,0 +1,23 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+/* Custom styles */
+.container {
+    @apply flex items-center justify-center p-4 md:py-8 flex-wrap h-full
+}
+.gallery {
+    @apply grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 h-full content-stretch
+}
+
+.img-gallery {
+    @apply w-full h-full object-cover rounded-lg bg-gray-100 content-center;
+}
+
+.img-txt {
+    @apply text-center my-2 h-7 overflow-y-hidden
+}
+
+.img {
+    @apply flex flex-col justify-center
+}

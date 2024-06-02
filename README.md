@@ -20,7 +20,7 @@ By using this project, you can download the images and put it inside a subfolder
 
 1. Clone the repository:
     ```bash
-    git clone https://github.com/yourusername/image-gallery-viewer.git
+    git clone https://github.com/yxlow07/image-gallery-viewer.git
     cd image-gallery-viewer
     ```
 
@@ -34,6 +34,11 @@ By using this project, you can download the images and put it inside a subfolder
     npm start
     ```
 
+5. Optional Auto-Start / Pre-configuring options
+	- Run `silent.vbs` included in root folder, no setup is required, it should work as intended
+	- Add a task in `Task Scheduler` for `Windows` to let it run on startup
+	- If you want to access the server using a normalised url such as `http://node.read`, you can configure it in the hosts file to point towards 127.0.0.1, detailed instructions are as below under **usage**
+
 ## Usage
 
 1. Place your images in the `public/images/yoursubfolder` directory. Organize them into subfolders (chapters, books, etc.).
@@ -41,6 +46,35 @@ By using this project, you can download the images and put it inside a subfolder
 3. Browse the gallery of subfolders, labelled by their name and first picture:
     - Click on an image to view its whole subfolder in detail.
     - Use the `ArrowLeft` and `ArrowRight` or `a` and `d` keys to navigate between images.
+
+## `Windows` only setup for server
+1. Navigate to `C:\Windows\System32\drivers\etc` and open the file `hosts` using any text editor with administrator privileges.
+
+2. Add on a line at the bottom `127.0.0.1 yourcustomurl.com` and save the file
+
+3. Now, navigate to your browser and go to `yourcustomurl.com:3000` and you will now see the server running!
+	
+4. Additional steps: allowing you to go to `yourcustomurl.com` without typing 3000 is as below:
+
+5. Install an nginx server and configure it or use `XAMPP` built-in apache server. Open the vhosts file and add on the below code:
+```apache
+<VirtualHost *:80>
+	ServerName yourcustomurl.com
+	ProxyPreserveHost On
+	ProxyPass / http://localhost:3000/
+	ProxyPassReverse / http://localhost:3000/
+</VirtualHost>
+```
+6. Edit your `httpd.conf` to make sure the code below exists and is uncommented
+```apache
+# Virtual hosts
+Include conf/extra/httpd-vhosts.conf
+
+# Included modules to prevent ssl errors
+LoadModule proxy_module modules/mod_proxy.so
+LoadModule proxy_http_module modules/mod_proxy_http.so
+``` 
+7. Restart your apache / nginx server and navigate to `yourcustomurl.com` and see the results!
 
 ## Features yet to Implement
 

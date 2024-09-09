@@ -42,14 +42,14 @@ document.addEventListener('DOMContentLoaded', () => {
         if ((event.key === 'ArrowRight' || event.key === 'd' || event.key === 'D') && nextButton.href !== '#') {
             window.location.href = nextButton.href;
         }
-        if (event.key === 'ArrowDown' || event.key === 's' || event.key === 'S') {
+        if (event.key === 's' || event.key === 'S') {
             window.scrollBy({
                 top: scroll_speed,
                 left: 0,
                 behavior: 'smooth'
             });
         }
-        if (event.key === 'ArrowUp' || event.key === 'w' || event.key === 'W') {
+        if (event.key === 'w' || event.key === 'W') {
             window.scrollBy({
                 top: -scroll_speed,
                 left: 0,
